@@ -1,0 +1,16 @@
+//Question 1 >> Installing node latest version and npm
+
+Updating node
+Clear NPM's cache:
+sudo npm cache clean -f
+
+Install a little helper called 'n'
+sudo npm install -g n
+
+Install latest stable Node.js version
+sudo n stable
+
+Updating npm
+npm install latest-version
+
+https://drive.google.com/file/d/1Bq8krca2zVY_PGJsLegFQtfR-K3DXuHa/view?usp=sharing
