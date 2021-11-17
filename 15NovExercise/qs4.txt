@@ -1,0 +1,4 @@
+// question 4>> Customizing in package.json
+
+//To create package.json
+npm init
