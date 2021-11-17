@@ -1,0 +1,25 @@
+//question 3>> Install dependencies and devdependencies
+
+//For installing dependencies we use
+npm install <package-name>
+//For installing dev dependencies we use command
+npm install <package-name> --save-dev
+
+//package.json
+{
+  "name": "learning",
+  "version": "1.0.0",
+  "description": "\"Hi my name is Praveen and this data is for qs2\"",
+  "main": "qs2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "ejs": "^3.1.6"
+  }
+}
