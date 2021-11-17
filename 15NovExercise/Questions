@@ -1,0 +1,6 @@
+1. Installing node latest version and npm
+2. Read file asynchronously and synchronously
+3. Install dependencies and dev dependencies
+4. Customizing in package.json
+5. Creating module and import & export
+6. Creating a http server
