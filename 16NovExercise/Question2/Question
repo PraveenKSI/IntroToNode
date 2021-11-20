@@ -1,0 +1,3 @@
+2.Create a student API which will return list of all students.
+      Create a table which will show all students
+      Create filter for student branch name and on clicking on filters it will show students accordingly.(API response from postman will also be good for 2 both APIs, if not able to design UI to perform filter)
