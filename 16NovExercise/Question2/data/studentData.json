@@ -1,0 +1,49 @@
+{
+    "Computer":[
+        {
+            "name":"Praveen Singh",
+            "rollNo":10
+        },
+        {
+            "name":"Mohan Bajaj",
+            "rollNo":4
+        },
+        {
+            "name":"Abhishek Yadav",
+            "rollNo":6
+        }
+    ],
+    "Physics":[
+        {
+            "name":"Siddharth Singh",
+            "rollNo":2
+        },
+        {
+            "name":"Rohan Tripathi",
+            "rollNo":1
+        },
+        {
+            "name":"Ruchi Sharma",
+            "rollNo":7
+        },
+        {
+            "name":"Pooja Saxena",
+            "rollNo":8
+        }
+    ],
+    "Chemistry":[
+        {
+            "name":"Mridula Thakur",
+            "rollNo":3
+        },
+        {
+            "name":"Shubham Sai",
+            "rollNo":5
+        },
+        {
+            "name":"Rishabh Raj",
+            "rollNo":9
+        }
+    ]
+
+}
