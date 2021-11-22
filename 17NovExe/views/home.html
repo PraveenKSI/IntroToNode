@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      nav {
+        display: flex;
+        background-color: aqua;
+        height: 80px;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .nav-item {
+        font-size: 1.3rem;
+        text-align: center;
+        width: 100px;
+        background-color: darkgray;
+        color: white;
+        margin: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      a:hover {
+        background-color: lightcyan;
+        color: black;
+      }
+      table {
+        border-collapse: collapse;
+        margin: 10px auto;
+      }
+      td,
+      th,
+      tr {
+        border: 1px solid black;
+        font-size: 1.5rem;
+        padding: 10px;
+      }
+      button {
+        font-size: 1.1rem;
+        text-align: center;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div id="home" class="nav-item"><a href="/">Home</a></div>
+        <div id="about" class="nav-item"><a href="/aboutus">About Us</a></div>
+        <div id="contact" class="nav-item"><a href="/adduser">Add User</a></div>
+      </nav>
+    </header>
+    <div>
+      <div class="table-container">
+        <table class="user-table">
+          <tr>
+            <th>Username</th>
+            <th>Firstname</th>
+            <th>lastname</th>
+            <th>Delete User</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+    <script>
+      let userTable = document.querySelector(".user-table");
+      async function getData() {
+        try {
+          let response = await fetch("/userlist");
+          data = await response.json();
+          showData(data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      function showData(data) {
+        let count = 0;
+        for (let obj of data) {
+          let tr = document.createElement("tr");
+
+          let td1 = document.createElement("td");
+          td1.innerHTML = obj.username;
+          let td2 = document.createElement("td");
+          td2.innerHTML = obj.firstname;
+          let td3 = document.createElement("td");
+          td3.innerHTML = obj.lastname;
+
+          let delBtn = document.createElement("button");
+          delBtn.innerHTML = "Delete User";
+          delBtn.id = count;
+
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tr.appendChild(td3);
+          tr.appendChild(delBtn);
+          userTable.appendChild(tr);
+
+          delBtn.addEventListener("click", () => {
+            fetch(`/deleteuser/${delBtn.id}`, {
+              method: "DELETE",
+            });
+            location.reload();
+          });
+          count++;
+        }
+      }
+      getData();
+    </script>
+  </body>
+</html>

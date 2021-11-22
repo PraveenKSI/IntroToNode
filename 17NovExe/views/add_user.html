@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .userform-container {
+        width: 50vw;
+        background-color: whitesmoke;
+        margin: 0 auto;
+        padding: 30px;
+        text-align: center;
+      }
+      input {
+        text-align: center;
+        width: 90%;
+        line-height: 2rem;
+        margin: 5px;
+      }
+      .submit-btn {
+        width: 30%;
+        background-color: turquoise;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="userform-container">
+      <form>
+        <label>Enter Username</label>
+        <input type="text" id="username" />
+        <br />
+        <lable>Enter your Firstname</lable>
+        <input type="text" id="firstname" />
+        <br />
+        <label>Enter your Lastname</label>
+        <input type="text" id="lastname" />
+        <br />
+        <label>Enter your Password</label>
+        <input type="password" id="password" />
+        <br />
+        <input type="submit" value="ADD USER" class="submit-btn" />
+      </form>
+    </div>
+    <script>
+      let submit = document.querySelector(".submit-btn");
+      submit.addEventListener("click", (event) => {
+        event.preventDefault();
+        let username = document.querySelector("#username").value;
+        let firstname = document.querySelector("#firstname").value;
+        let lastname = document.querySelector("#lastname").value;
+        let password = document.querySelector("#password").value;
+        let obj = {
+          username: username,
+          firstname: firstname,
+          lastname: lastname,
+          password: password,
+        };
+        console.log(obj);
+        fetch("/adduser", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),
+        })
+        //   .then((res) => res.json())
+        //   .then((res) => console.log(res))
+        //   .catch((err)=>console.log(err));
+        // fetch("/adduser", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify(obj),
+        // });
+      });
+    </script>
+  </body>
+</html>
